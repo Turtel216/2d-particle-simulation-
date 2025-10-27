@@ -2,6 +2,7 @@
 #include "SFML/Window/ContextSettings.hpp"
 #include "SFML/Window/Keyboard.hpp"
 #include "SFML/Window/VideoMode.hpp"
+#include "particle.hpp"
 #include "render.hpp"
 
 int main(int argc, char *argv[]) {
@@ -17,16 +18,21 @@ int main(int argc, char *argv[]) {
     window.setFramerateLimit(frame_rate);
     Renderer renderer{window};
 
+    ParticleManager manager;
+    auto &object = manager.addObject({420.0f, 100.0f}, 10.0f);
+
     while (window.isOpen()) {
         sf::Event event{};
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed ||
-                sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                sf::Keyboard::isKeyPressed(
+                    sf::Keyboard::Escape)) { // Terminate program
                 window.close();
             }
         }
+        manager.update();
         window.clear(sf::Color::White);
-        renderer.render();
+        renderer.render(manager);
         window.display();
     }
 
