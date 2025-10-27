@@ -22,6 +22,7 @@ FetchContent_MakeAvailable(SFML)
 add_executable(sim
     src/main.cpp
     src/render.cpp
+    src/particle.cpp
 )
 
 # Link SFML
