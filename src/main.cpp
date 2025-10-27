@@ -19,6 +19,8 @@ int main(int argc, char *argv[]) {
     Renderer renderer{window};
 
     ParticleManager manager;
+    manager.setBoundary({window_width / 2.0f, window_height / 2.0f},
+                        (window_width - 20.0f) / 2);
     auto &object = manager.addObject({420.0f, 100.0f}, 10.0f);
 
     while (window.isOpen()) {

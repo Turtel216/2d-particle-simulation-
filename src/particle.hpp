@@ -18,10 +18,10 @@ class Particle {
           acceleration{10.0f, 10.0f}, radius{radius_} {}
 
     void update(float dt);
-    void addVelocity(sf::Vector2f v, float dt);
-    void setVelocity(sf::Vector2f v, float dt);
-    void accelerate(sf::Vector2f a);
-    sf::Vector2f getVelocity();
+    void addVelocity(sf::Vector2f v, float dt) noexcept;
+    void setVelocity(sf::Vector2f v, float dt) noexcept;
+    void accelerate(sf::Vector2f a) noexcept;
+    sf::Vector2f getVelocity() noexcept;
 };
 
 class ParticleManager {
@@ -29,15 +29,20 @@ class ParticleManager {
     ParticleManager() = default;
 
     Particle &addObject(sf::Vector2f position, float radius);
-    std::vector<Particle> &getObjects();
+    std::vector<Particle> &getObjects() noexcept;
     void update();
+    void setBoundary(sf::Vector2f position, float radius) noexcept;
+    sf::Vector3f getBoundary() const noexcept;
 
   private:
     std::vector<Particle> objects;
     sf::Vector2f gravity = {0.0f, 1000.0f};
+    sf::Vector2f boundary_center = {420.0f, 420.0f};
+    float boundary_radius = 100.0f;
     float step_dt = 1.0f / 60;
 
-    void applyGravity();
+    void inline applyGravity();
+    void inline applyBoundary();
     void updateObjects(float dt);
 };
 
