@@ -42,6 +42,7 @@ class ParticleManager {
     sf::Vector2f boundary_center = {420.0f, 420.0f};
     float boundary_radius = 100.0f;
     float step_dt = 1.0f / 60;
+    float sub_steps = 8;
 
     void inline applyGravity() noexcept;
     void inline applyBoundary() noexcept;

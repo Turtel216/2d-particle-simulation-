@@ -29,9 +29,12 @@ Particle &ParticleManager::addObject(sf::Vector2f position,
 }
 
 void ParticleManager::update() {
-    applyGravity();
-    applyBoundary();
-    updateObjects(step_dt);
+    float substep_dt = step_dt / sub_steps;
+    for (int i = 0; i < sub_steps; ++i) {
+        applyGravity();
+        applyBoundary();
+        updateObjects(substep_dt);
+    }
 };
 
 void ParticleManager::setBoundary(sf::Vector2f position,
