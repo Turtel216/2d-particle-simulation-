@@ -1,7 +1,7 @@
 #include "particle.hpp"
 #include <cmath>
 
-void Particle::update(float dt) {
+void Particle::update(float dt) noexcept {
     sf::Vector2f displacement = position - position_last;
     position_last = position;
     position = position + displacement + acceleration * (dt * dt);
@@ -22,7 +22,8 @@ sf::Vector2f Particle::getVelocity() noexcept {
 
 void Particle::accelerate(sf::Vector2f a) noexcept { acceleration += a; }
 
-Particle &ParticleManager::addObject(sf::Vector2f position, float radius) {
+Particle &ParticleManager::addObject(sf::Vector2f position,
+                                     float radius) noexcept {
     Particle newParticle = Particle(position, radius);
     return objects.emplace_back(newParticle);
 }
@@ -43,13 +44,13 @@ sf::Vector3f ParticleManager::getBoundary() const noexcept {
     return {boundary_center.x, boundary_center.y, boundary_radius};
 }
 
-void inline ParticleManager::applyGravity() {
+void inline ParticleManager::applyGravity() noexcept {
     for (auto &obj : objects) {
         obj.accelerate((gravity));
     }
 }
 
-void inline ParticleManager::applyBoundary() {
+void inline ParticleManager::applyBoundary() noexcept {
     for (auto &obj : objects) {
         const sf::Vector2f r = boundary_center - obj.position;
         const float dist = std::sqrt(r.x * r.x + r.y * r.y);
@@ -66,7 +67,7 @@ void inline ParticleManager::applyBoundary() {
     }
 }
 
-void ParticleManager::updateObjects(float dt) {
+void inline ParticleManager::updateObjects(float dt) noexcept {
     for (auto &obj : objects) {
         obj.update(dt);
     }
