@@ -35,6 +35,8 @@ class ParticleManager {
     void update();
     void setBoundary(sf::Vector2f position, float radius) noexcept;
     sf::Vector3f getBoundary() const noexcept;
+    void setObjectVelocity(Particle &object, sf::Vector2f v) noexcept;
+    float getStepDt() const noexcept;
 
   private:
     std::vector<Particle> objects;

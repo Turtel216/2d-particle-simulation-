@@ -47,6 +47,15 @@ sf::Vector3f ParticleManager::getBoundary() const noexcept {
     return {boundary_center.x, boundary_center.y, boundary_radius};
 }
 
+void ParticleManager::setObjectVelocity(Particle &object,
+                                        sf::Vector2f v) noexcept {
+    object.setVelocity(v, getStepDt());
+}
+
+float ParticleManager::getStepDt() const noexcept {
+    return step_dt / sub_steps;
+}
+
 void inline ParticleManager::applyGravity() noexcept {
     for (auto &obj : objects) {
         obj.accelerate((gravity));
