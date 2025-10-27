@@ -28,6 +28,8 @@ class ParticleManager {
   public:
     ParticleManager() = default;
 
+    void mousePull(sf::Vector2f pos);
+    void mousePush(sf::Vector2f pos);
     Particle &addObject(sf::Vector2f position, float radius) noexcept;
     std::vector<Particle> &getObjects() noexcept;
     void update();

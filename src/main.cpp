@@ -32,6 +32,23 @@ int main(int argc, char *argv[]) {
                 window.close();
             }
         }
+        // Mouuse pull
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+            float ratio = 840.0f / window.getSize().x;
+            sf::Vector2f pos =
+                static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) *
+                ratio;
+            manager.mousePull(pos);
+        }
+        // Mouse Push
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+            float ratio = 840.0f / window.getSize().x;
+            sf::Vector2f pos =
+                static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) *
+                ratio;
+            manager.mousePush(pos);
+        }
+
         manager.update();
         window.clear(sf::Color::White);
         renderer.render(manager);

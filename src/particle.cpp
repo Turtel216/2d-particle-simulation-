@@ -76,3 +76,19 @@ void inline ParticleManager::updateObjects(float dt) noexcept {
 std::vector<Particle> &ParticleManager::getObjects() noexcept {
     return objects;
 }
+
+void ParticleManager::mousePull(sf::Vector2f pos) {
+    for (auto &obj : objects) {
+        sf::Vector2 dir = pos - obj.position;
+        float dist = std::sqrt(dir.x * dir.x + dir.y * dir.y);
+        obj.accelerate(dir * std::max(0.0f, 10 * (120 - dist)));
+    }
+}
+
+void ParticleManager::mousePush(sf::Vector2f pos) {
+    for (auto &obj : objects) {
+        sf::Vector2 dir = pos - obj.position;
+        float dist = std::sqrt(dir.x * dir.x + dir.y * dir.y);
+        obj.accelerate(dir * std::min(0.0f, -10 * (120 - dist)));
+    }
+}
