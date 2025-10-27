@@ -21,6 +21,7 @@ FetchContent_MakeAvailable(SFML)
 # Add your main executable
 add_executable(sim
     src/main.cpp
+    src/render.cpp
 )
 
 # Link SFML
