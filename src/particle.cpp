@@ -132,3 +132,14 @@ void ParticleManager::mousePush(sf::Vector2f pos) {
         obj.accelerate(dir * std::min(0.0f, -10 * (120 - dist)));
     }
 }
+
+void ParticleManager::toggleGravityUp() noexcept { gravity = {0.0f, -1000.0f}; }
+void ParticleManager::toggleGravityDown() noexcept {
+    gravity = {0.0f, 1000.0f};
+}
+void ParticleManager::toggleGravityLeft() noexcept {
+    gravity = {-1000.0f, 0.0f};
+}
+void ParticleManager::toggleGravityRight() noexcept {
+    gravity = {1000.0f, 0.0f};
+}

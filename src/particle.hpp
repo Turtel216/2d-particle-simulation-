@@ -38,6 +38,10 @@ class ParticleManager {
     sf::Vector3f getBoundary() const noexcept;
     void setObjectVelocity(Particle &object, sf::Vector2f v) noexcept;
     float getStepDt() const noexcept;
+    void toggleGravityUp() noexcept;
+    void toggleGravityDown() noexcept;
+    void toggleGravityLeft() noexcept;
+    void toggleGravityRight() noexcept;
 
   private:
     std::vector<Particle> objects;

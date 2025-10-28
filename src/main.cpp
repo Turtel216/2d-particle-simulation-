@@ -46,6 +46,17 @@ int main(int argc, char *argv[]) {
                 window.close();
             }
         }
+
+        // Move gravity on key press
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+            manager.toggleGravityUp();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+            manager.toggleGravityDown();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+            manager.toggleGravityLeft();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            manager.toggleGravityRight();
+
         // Spaen Particles
         if (manager.getObjects().size() < max_objects &&
             spawn_clock.getElapsedTime().asSeconds() >= spawn_delay) {
@@ -61,6 +72,7 @@ int main(int argc, char *argv[]) {
                             sf::Vector2f(std::cos(angle), std::sin(angle)));
             spawn_clock.restart();
         }
+
         // Mouuse pull
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
             float ratio = 840.0f / window.getSize().x;
@@ -69,6 +81,7 @@ int main(int argc, char *argv[]) {
                 ratio;
             manager.mousePull(pos);
         }
+
         // Mouse Push
         if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
             float ratio = 840.0f / window.getSize().x;
