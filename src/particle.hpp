@@ -10,6 +10,7 @@ class Particle {
     sf::Vector2f position;
     sf::Vector2f position_last;
     sf::Vector2f acceleration;
+    sf::Color color = sf::Color::Cyan;
 
     Particle() = default;
 

@@ -19,7 +19,7 @@ void Renderer::render(ParticleManager &manager) {
     for (const auto &obj : objects) {
         circle.setPosition(obj.position);
         circle.setScale(obj.radius, obj.radius);
-        circle.setFillColor(sf::Color::Cyan);
+        circle.setFillColor(obj.color);
         target.draw(circle);
     }
 }

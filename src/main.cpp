@@ -54,6 +54,7 @@ int main(int argc, char *argv[]) {
             auto &object = manager.addObject(spawn_position, radius);
 
             float angle = M_PI * 0.5f + max_angle * std::sin(3 * t);
+            object.color = getColor(t);
 
             manager.setObjectVelocity(
                 object, spawn_velocity *
