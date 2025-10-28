@@ -77,7 +77,7 @@ Example:
 
 ## Author
 
-**Your Name**
+**Dimitrios Papakonstantinou**
 [Gitlab](https://gitlab.com/papakonstantinou) • [LinkedIn](https://www.linkedin.com/in/dimitrios-papakonstantinou-44a7672b3/)
 
 ---
