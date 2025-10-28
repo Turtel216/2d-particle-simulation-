@@ -48,6 +48,7 @@ class ParticleManager {
 
     void inline applyGravity() noexcept;
     void inline applyBoundary() noexcept;
+    void inline checkCollisions();
     void inline updateObjects(float dt) noexcept;
 };
 

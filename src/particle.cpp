@@ -32,6 +32,7 @@ void ParticleManager::update() {
     float substep_dt = step_dt / sub_steps;
     for (int i = 0; i < sub_steps; ++i) {
         applyGravity();
+        checkCollisions();
         applyBoundary();
         updateObjects(substep_dt);
     }
@@ -75,6 +76,33 @@ void inline ParticleManager::applyBoundary() noexcept {
             obj.position = boundary_center - n * (boundary_radius - obj.radius);
             obj.setVelocity(
                 2.0f * (vel.x * perp.x + vel.y * perp.y) * perp - vel, 1.0f);
+        }
+    }
+}
+
+void inline ParticleManager::checkCollisions() {
+    int num_objects = objects.size();
+    for (int i = 0; i < num_objects; ++i) {
+        auto &obj_1 = objects[i];
+        for (int j = 0; j < num_objects; j++) {
+            if (i == j)
+                continue;
+
+            auto &obj_2 = objects[j];
+            sf::Vector2f v = obj_1.position - obj_2.position;
+            float dist = std::sqrt(v.x * v.x + v.y * v.y);
+            float min_dist = obj_1.radius + obj_2.radius;
+
+            if (dist < min_dist) {
+                sf::Vector2f n = v / dist; // Normalize
+                float total_mass =
+                    obj_1.radius * obj_1.radius + obj_2.radius * obj_2.radius;
+                float mass_ratio = (obj_1.radius * obj_1.radius) / total_mass;
+                float delta = 0.5f * (min_dist - dist);
+
+                obj_1.position += n * (1 - mass_ratio) * delta;
+                obj_2.position -= n * mass_ratio * delta;
+            }
         }
     }
 }
