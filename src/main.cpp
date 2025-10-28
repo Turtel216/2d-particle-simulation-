@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     manager.setBoundary({window_width / 2.0f, window_height / 2.0f},
                         (window_width - 20.0f) / 2);
 
-    const int max_objects = 100; // Maximum number of particles being spawned
+    const int max_objects = 1000; // Maximum number of particles being spawned
     const float spawn_delay = 0.05f;
     const sf::Vector2f spawn_position = {420.0f,
                                          200.0f}; // Particle spawn point
