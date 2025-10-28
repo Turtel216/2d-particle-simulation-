@@ -32,8 +32,8 @@ void ParticleManager::update() {
     float substep_dt = step_dt / sub_steps;
     for (int i = 0; i < sub_steps; ++i) {
         applyGravity();
-        checkCollisions();
         applyBoundary();
+        checkCollisions();
         updateObjects(substep_dt);
     }
 };

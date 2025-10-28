@@ -4,6 +4,7 @@
 #include "SFML/Window/VideoMode.hpp"
 #include "particle.hpp"
 #include "render.hpp"
+#include "utils.hpp"
 
 int main(int argc, char *argv[]) {
     constexpr int32_t window_width = 840;
@@ -25,8 +26,10 @@ int main(int argc, char *argv[]) {
     const int max_objects = 100;
     const float spawn_delay = 0.05f;
     const sf::Vector2f spawn_position = {420.0f, 200.0f};
+    const float min_radius = 7.0f;
+    const float max_radius = 12.0f;
 
-    sf::Clock clock;
+    sf::Clock spawn_clock, timer;
 
     while (window.isOpen()) {
         sf::Event event{};
@@ -39,10 +42,13 @@ int main(int argc, char *argv[]) {
         }
         // Spaen Particles
         if (manager.getObjects().size() < max_objects &&
-            clock.getElapsedTime().asSeconds() >= spawn_delay) {
-            clock.restart();
-            auto &object = manager.addObject(spawn_position, 10.0f);
-            manager.setObjectVelocity(object, {500.0f, 50.0f});
+            spawn_clock.getElapsedTime().asSeconds() >= spawn_delay) {
+            float t = timer.getElapsedTime().asSeconds();
+            float radius = min_radius + (max_radius - min_radius) * getRandom();
+            auto &object = manager.addObject(spawn_position, radius);
+
+            manager.setObjectVelocity((object), {500.0f, 50.0f});
+            spawn_clock.restart();
         }
         // Mouuse pull
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
