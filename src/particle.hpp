@@ -47,6 +47,7 @@ class ParticleManager {
     std::vector<Particle> objects;
     sf::Vector2f gravity = {0.0f, 1000.0f};
     sf::Vector2f boundary_center = {420.0f, 420.0f};
+    float window_size = 840.0f;
     float boundary_radius = 100.0f;
     float step_dt = 1.0f / 60;
     float sub_steps = 8;

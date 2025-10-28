@@ -1,4 +1,5 @@
 #include "particle.hpp"
+#include "SFML/System/Vector2.hpp"
 #include <cmath>
 
 void Particle::update(float dt) noexcept {
@@ -65,17 +66,33 @@ void inline ParticleManager::applyGravity() noexcept {
 
 void inline ParticleManager::applyBoundary() noexcept {
     for (auto &obj : objects) {
-        const sf::Vector2f r = boundary_center - obj.position;
-        const float dist = std::sqrt(r.x * r.x + r.y * r.y);
+        const float dampening = 0.75f;
+        const sf::Vector2f pos = obj.position;
+        sf::Vector2f new_pos = obj.position;
+        sf::Vector2f vel = obj.getVelocity();
+        sf::Vector2f dy = {vel.x * dampening, -vel.y};
+        sf::Vector2f dx = {-vel.x, vel.y * dampening};
 
-        if (dist > boundary_radius - obj.radius) {
-            const sf::Vector2f n = r / dist;
-            const sf::Vector2f perp = {-n.y, n.x};
-            const sf::Vector2f vel = obj.getVelocity();
+        // Bounce border vertical
+        if (pos.x < obj.radius || pos.x + obj.radius > window_size) {
+            if (pos.x < obj.radius)
+                new_pos.x = obj.radius;
+            if (pos.x + obj.radius > window_size)
+                new_pos.x = window_size - obj.radius;
 
-            obj.position = boundary_center - n * (boundary_radius - obj.radius);
-            obj.setVelocity(
-                2.0f * (vel.x * perp.x + vel.y * perp.y) * perp - vel, 1.0f);
+            obj.position = new_pos;
+            obj.setVelocity(dx, 1.0);
+        }
+
+        // Bounce border horizontal
+        if (pos.y < obj.radius || pos.y + obj.radius > window_size) {
+            if (pos.y < obj.radius)
+                new_pos.y = obj.radius;
+            if (pos.y + obj.radius > window_size)
+                new_pos.y = window_size - obj.radius;
+
+            obj.position = new_pos;
+            obj.setVelocity(dy, 1.0);
         }
     }
 }
