@@ -14,7 +14,11 @@ int main(int argc, char *argv[]) {
     sf::ContextSettings settings;
     settings.antialiasingLevel = 1;
     sf::RenderWindow window(sf::VideoMode(window_width, window_height),
-                            "Verlet", sf::Style::Default, settings);
+                            "2D Particle Simulation", sf::Style::Default,
+                            settings);
+
+    sf::Font arialFont;
+    arialFont.loadFromFile("./assets/Arial Unicode.ttf");
 
     const uint32_t frame_rate = 60;
     window.setFramerateLimit(frame_rate);
@@ -34,8 +38,8 @@ int main(int argc, char *argv[]) {
         200.0f; // Initiale particle velocity after spawn
     const float max_angle = M_PI * 0.5f; // Maximum spawn angle
 
-    // Clock for tracking spawn intervals and spawn angle
-    sf::Clock spawn_clock, timer;
+    // Clock for tracking spawn intervals, spawn angle and fps
+    sf::Clock spawn_clock, timer, fps_timer;
 
     while (window.isOpen()) {
         sf::Event event{};
@@ -91,9 +95,27 @@ int main(int argc, char *argv[]) {
             manager.mousePush(pos);
         }
 
+        fps_timer.restart();
+
         manager.update();
+
+        float ms = 1.0 * fps_timer.getElapsedTime().asMicroseconds() / 100;
+
         window.clear(sf::Color::White);
         renderer.render(manager);
+
+        ms = 1.0 * fps_timer.getElapsedTime().asMicroseconds() / 1000;
+
+        // Draw perfomance info
+        sf::Text number;
+        number.setFont(arialFont);
+        number.setString(std::to_string(ms) + "ms, " +
+                         std::to_string(manager.getObjects().size()) +
+                         " particles");
+        number.setCharacterSize(24);
+        number.setFillColor(sf::Color::Black);
+        window.draw(number);
+
         window.display();
     }
 
