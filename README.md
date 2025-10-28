@@ -1,6 +1,6 @@
 # 2D Particle Simulation (C++ & SFML)
 
-> ⚠️ **Note:** This project is a work in progress and still under active development.
+> **Note:** This project is a work in progress and still under active development.
 
 A high-performance **2D Particle Simulation** built with **C++** and **SFML**, focused on **optimization and real-time rendering**.
 
@@ -33,7 +33,7 @@ A high-performance **2D Particle Simulation** built with **C++** and **SFML**, f
 * **CMake ≥ 3.16**
 * **SFML ≥ 2.5**
 
-### 🧩 Building the Project
+### Building the Project
 
 ```bash
 # Clone the repository
@@ -48,7 +48,7 @@ cmake ..
 cmake --build .
 ```
 
-### ▶️ Run the Simulation
+###  Run the Simulation
 
 After building, run:
 
