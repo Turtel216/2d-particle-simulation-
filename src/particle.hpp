@@ -78,7 +78,7 @@ class Particle {
      * @param position_ Initial position in pixels.
      * @param radius_   Rendering/collision radius in pixels.
      */
-    Particle(sf::Vector2f position_, float radius_)
+    Particle(const sf::Vector2f position_, const float radius_)
         : position{position_}, position_last{position_},
           acceleration{10.0f, 10.0f}, radius{radius_} {}
 
@@ -94,7 +94,7 @@ class Particle {
      *
      * @param dt Time step in seconds. Must be positive.
      */
-    void update(float dt) noexcept;
+    void update(const float dt) noexcept;
 
     /**
      * @brief Add a velocity to the particle for this step.
@@ -107,7 +107,7 @@ class Particle {
      * @param dt Time step in seconds used to convert velocity to a position
      * delta.
      */
-    void addVelocity(sf::Vector2f v, float dt) noexcept;
+    void addVelocity(const sf::Vector2f &v, const float dt) noexcept;
 
     /**
      * @brief Set the particle's instantaneous velocity.
@@ -119,14 +119,14 @@ class Particle {
      * @param dt Time step in seconds used to convert velocity to a position
      * delta.
      */
-    void setVelocity(sf::Vector2f v, float dt) noexcept;
+    void setVelocity(const sf::Vector2f &v, const float dt) noexcept;
 
     /**
      * @brief Add to the particle's acceleration accumulator.
      *
      * @param a Acceleration to add (pixels/s^2).
      */
-    void accelerate(sf::Vector2f a) noexcept;
+    void accelerate(const sf::Vector2f &a) noexcept;
 
     /**
      * @brief Get the particle's instantaneous velocity estimate.
@@ -175,7 +175,7 @@ class ParticleManager {
      *
      * @param pos Mouse position in pixels (SFML coordinates).
      */
-    void mousePull(sf::Vector2f pos);
+    void mousePull(const sf::Vector2f &pos);
 
     /**
      * @brief Apply a repulsive mouse force away from the given position.
@@ -185,7 +185,7 @@ class ParticleManager {
      *
      * @param pos Mouse position in pixels (SFML coordinates).
      */
-    void mousePush(sf::Vector2f pos);
+    void mousePush(const sf::Vector2f &pos);
 
     /**
      * @brief Create and add a new particle to the system.
@@ -197,7 +197,8 @@ class ParticleManager {
      * @note The reference remains valid as long as the underlying vector does
      *       not reallocate. Retain with care if you plan to add many particles.
      */
-    Particle &addObject(sf::Vector2f position, float radius) noexcept;
+    Particle &addObject(const sf::Vector2f &position,
+                        const float radius) noexcept;
 
     /**
      * @brief Access all managed particles.
@@ -225,7 +226,7 @@ class ParticleManager {
      * @param position Circle center in pixels.
      * @param radius   Circle radius in pixels.
      */
-    void setBoundary(sf::Vector2f position, float radius) noexcept;
+    void setBoundary(const sf::Vector2f &position, const float radius) noexcept;
 
     /**
      * @brief Query the current circular boundary as (x, y, r).
@@ -245,7 +246,7 @@ class ParticleManager {
      * @param object Particle to modify.
      * @param v      Desired velocity (pixels/s).
      */
-    void setObjectVelocity(Particle &object, sf::Vector2f v) noexcept;
+    void setObjectVelocity(Particle &object, const sf::Vector2f &v) noexcept;
 
     /**
      * @brief Get the fixed time step used for a full frame update.
@@ -298,11 +299,6 @@ class ParticleManager {
      * Defaults to downward gravity {0, 1000}.
      */
     sf::Vector2f gravity = {0.0f, 1000.0f};
-
-    /**
-     * @brief Center of the circular boundary in pixels.
-     */
-    sf::Vector2f boundary_center = {420.0f, 420.0f};
 
     /**
      * @brief Nominal window size in pixels (used for clamping or scaling
@@ -361,7 +357,7 @@ class ParticleManager {
      *
      * @param dt Sub-step time delta in seconds.
      */
-    void inline updateObjects(float dt) noexcept;
+    void inline updateObjects(const float dt) noexcept;
 };
 
 #endif // PARTICAL_H_

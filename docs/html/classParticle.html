@@ -102,16 +102,16 @@ $(function(){initNavTree('classParticle.html','','classParticle-members'); });
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a611ed46b6f07319f0e2f7bd588192a30" id="r_a611ed46b6f07319f0e2f7bd588192a30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a611ed46b6f07319f0e2f7bd588192a30">Particle</a> ()=default</td></tr>
 <tr class="memdesc:a611ed46b6f07319f0e2f7bd588192a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
-<tr class="memitem:ab0f5d50716bb90b306b11b41a8abc1cb" id="r_ab0f5d50716bb90b306b11b41a8abc1cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0f5d50716bb90b306b11b41a8abc1cb">Particle</a> (sf::Vector2f position_, float radius_)</td></tr>
-<tr class="memdesc:ab0f5d50716bb90b306b11b41a8abc1cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a particle at a given position and radius.  <br /></td></tr>
-<tr class="memitem:a3f7a6d972d79db7b4b70cbff35bb3647" id="r_a3f7a6d972d79db7b4b70cbff35bb3647"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f7a6d972d79db7b4b70cbff35bb3647">update</a> (float dt) noexcept</td></tr>
-<tr class="memdesc:a3f7a6d972d79db7b4b70cbff35bb3647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate particle state forward by dt seconds.  <br /></td></tr>
-<tr class="memitem:ac08d009f7622e4b43fb6374cef0cd18c" id="r_ac08d009f7622e4b43fb6374cef0cd18c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac08d009f7622e4b43fb6374cef0cd18c">addVelocity</a> (sf::Vector2f v, float dt) noexcept</td></tr>
-<tr class="memdesc:ac08d009f7622e4b43fb6374cef0cd18c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a velocity to the particle for this step.  <br /></td></tr>
-<tr class="memitem:a1c15b6d2c7db7463a5ff434d31c8dd41" id="r_a1c15b6d2c7db7463a5ff434d31c8dd41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c15b6d2c7db7463a5ff434d31c8dd41">setVelocity</a> (sf::Vector2f v, float dt) noexcept</td></tr>
-<tr class="memdesc:a1c15b6d2c7db7463a5ff434d31c8dd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the particle's instantaneous velocity.  <br /></td></tr>
-<tr class="memitem:aea5306b3100c755f3294e4d1fd1ec4e1" id="r_aea5306b3100c755f3294e4d1fd1ec4e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea5306b3100c755f3294e4d1fd1ec4e1">accelerate</a> (sf::Vector2f a) noexcept</td></tr>
-<tr class="memdesc:aea5306b3100c755f3294e4d1fd1ec4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add to the particle's acceleration accumulator.  <br /></td></tr>
+<tr class="memitem:a5181f4085efabb7b0712d1b0c00c77f9" id="r_a5181f4085efabb7b0712d1b0c00c77f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5181f4085efabb7b0712d1b0c00c77f9">Particle</a> (const sf::Vector2f position_, const float radius_)</td></tr>
+<tr class="memdesc:a5181f4085efabb7b0712d1b0c00c77f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a particle at a given position and radius.  <br /></td></tr>
+<tr class="memitem:a95ca536acb278d880e8175f9c0f86f14" id="r_a95ca536acb278d880e8175f9c0f86f14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95ca536acb278d880e8175f9c0f86f14">update</a> (const float dt) noexcept</td></tr>
+<tr class="memdesc:a95ca536acb278d880e8175f9c0f86f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate particle state forward by dt seconds.  <br /></td></tr>
+<tr class="memitem:ac899f7bd6b080a9eca709162b131550b" id="r_ac899f7bd6b080a9eca709162b131550b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac899f7bd6b080a9eca709162b131550b">addVelocity</a> (const sf::Vector2f &amp;v, const float dt) noexcept</td></tr>
+<tr class="memdesc:ac899f7bd6b080a9eca709162b131550b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a velocity to the particle for this step.  <br /></td></tr>
+<tr class="memitem:ab6294745b2f31e9adcf54c059f51761f" id="r_ab6294745b2f31e9adcf54c059f51761f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6294745b2f31e9adcf54c059f51761f">setVelocity</a> (const sf::Vector2f &amp;v, const float dt) noexcept</td></tr>
+<tr class="memdesc:ab6294745b2f31e9adcf54c059f51761f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the particle's instantaneous velocity.  <br /></td></tr>
+<tr class="memitem:abd73f38fb3e2d3e598500d5b2249823f" id="r_abd73f38fb3e2d3e598500d5b2249823f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd73f38fb3e2d3e598500d5b2249823f">accelerate</a> (const sf::Vector2f &amp;a) noexcept</td></tr>
+<tr class="memdesc:abd73f38fb3e2d3e598500d5b2249823f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add to the particle's acceleration accumulator.  <br /></td></tr>
 <tr class="memitem:a1761effbe0bd99be993ae30a297c2c43" id="r_a1761effbe0bd99be993ae30a297c2c43"><td class="memItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1761effbe0bd99be993ae30a297c2c43">getVelocity</a> () noexcept</td></tr>
 <tr class="memdesc:a1761effbe0bd99be993ae30a297c2c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the particle's instantaneous velocity estimate.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -161,8 +161,8 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
 
 </div>
 </div>
-<a id="ab0f5d50716bb90b306b11b41a8abc1cb" name="ab0f5d50716bb90b306b11b41a8abc1cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0f5d50716bb90b306b11b41a8abc1cb">&#9670;&#160;</a></span>Particle() <span class="overload">[2/2]</span></h2>
+<a id="a5181f4085efabb7b0712d1b0c00c77f9" name="a5181f4085efabb7b0712d1b0c00c77f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5181f4085efabb7b0712d1b0c00c77f9">&#9670;&#160;</a></span>Particle() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,12 +173,12 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
         <tr>
           <td class="memname">Particle::Particle </td>
           <td>(</td>
-          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>position_</em></span>, </td>
+          <td class="paramtype">const sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>position_</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius_</em></span>&#160;)</td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>radius_</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -201,8 +201,8 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aea5306b3100c755f3294e4d1fd1ec4e1" name="aea5306b3100c755f3294e4d1fd1ec4e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea5306b3100c755f3294e4d1fd1ec4e1">&#9670;&#160;</a></span>accelerate()</h2>
+<a id="abd73f38fb3e2d3e598500d5b2249823f" name="abd73f38fb3e2d3e598500d5b2249823f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd73f38fb3e2d3e598500d5b2249823f">&#9670;&#160;</a></span>accelerate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,7 +213,7 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
         <tr>
           <td class="memname">void Particle::accelerate </td>
           <td>(</td>
-          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td class="paramtype">const sf::Vector2f &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -234,8 +234,8 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
 
 </div>
 </div>
-<a id="ac08d009f7622e4b43fb6374cef0cd18c" name="ac08d009f7622e4b43fb6374cef0cd18c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac08d009f7622e4b43fb6374cef0cd18c">&#9670;&#160;</a></span>addVelocity()</h2>
+<a id="ac899f7bd6b080a9eca709162b131550b" name="ac899f7bd6b080a9eca709162b131550b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac899f7bd6b080a9eca709162b131550b">&#9670;&#160;</a></span>addVelocity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,12 +246,12 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
         <tr>
           <td class="memname">void Particle::addVelocity </td>
           <td>(</td>
-          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+          <td class="paramtype">const sf::Vector2f &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>&#160;)</td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -302,8 +302,8 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
 
 </div>
 </div>
-<a id="a1c15b6d2c7db7463a5ff434d31c8dd41" name="a1c15b6d2c7db7463a5ff434d31c8dd41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c15b6d2c7db7463a5ff434d31c8dd41">&#9670;&#160;</a></span>setVelocity()</h2>
+<a id="ab6294745b2f31e9adcf54c059f51761f" name="ab6294745b2f31e9adcf54c059f51761f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6294745b2f31e9adcf54c059f51761f">&#9670;&#160;</a></span>setVelocity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,12 +314,12 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
         <tr>
           <td class="memname">void Particle::setVelocity </td>
           <td>(</td>
-          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+          <td class="paramtype">const sf::Vector2f &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>&#160;)</td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -341,8 +341,8 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
 
 </div>
 </div>
-<a id="a3f7a6d972d79db7b4b70cbff35bb3647" name="a3f7a6d972d79db7b4b70cbff35bb3647"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f7a6d972d79db7b4b70cbff35bb3647">&#9670;&#160;</a></span>update()</h2>
+<a id="a95ca536acb278d880e8175f9c0f86f14" name="a95ca536acb278d880e8175f9c0f86f14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95ca536acb278d880e8175f9c0f86f14">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -353,7 +353,7 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
         <tr>
           <td class="memname">void Particle::update </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span></td><td>)</td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -394,7 +394,7 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>position</b><
 </div><div class="memdoc">
 
 <p>Current accumulated acceleration in pixels/s^2. </p>
-<p>Use <a class="el" href="#aea5306b3100c755f3294e4d1fd1ec4e1" title="Add to the particle&#39;s acceleration accumulator.">accelerate()</a> to add to this value. It is typically reset or integrated during <a class="el" href="#a3f7a6d972d79db7b4b70cbff35bb3647" title="Integrate particle state forward by dt seconds.">update()</a>. </p>
+<p>Use <a class="el" href="#abd73f38fb3e2d3e598500d5b2249823f" title="Add to the particle&#39;s acceleration accumulator.">accelerate()</a> to add to this value. It is typically reset or integrated during <a class="el" href="#a95ca536acb278d880e8175f9c0f86f14" title="Integrate particle state forward by dt seconds.">update()</a>. </p>
 
 </div>
 </div>

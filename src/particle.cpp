@@ -2,18 +2,18 @@
 #include "SFML/System/Vector2.hpp"
 #include <cmath>
 
-void Particle::update(float dt) noexcept {
+void Particle::update(const float dt) noexcept {
     sf::Vector2f displacement = position - position_last;
     position_last = position;
     position = position + displacement + acceleration * (dt * dt);
     acceleration = {};
 }
 
-void Particle::setVelocity(sf::Vector2f v, float dt) noexcept {
+void Particle::setVelocity(const sf::Vector2f &v, const float dt) noexcept {
     position_last = position - (v * dt);
 }
 
-void Particle::addVelocity(sf::Vector2f v, float dt) noexcept {
+void Particle::addVelocity(const sf::Vector2f &v, const float dt) noexcept {
     position_last -= v * dt;
 }
 
@@ -21,10 +21,10 @@ sf::Vector2f Particle::getVelocity() noexcept {
     return position - position_last;
 }
 
-void Particle::accelerate(sf::Vector2f a) noexcept { acceleration += a; }
+void Particle::accelerate(const sf::Vector2f &a) noexcept { acceleration += a; }
 
-Particle &ParticleManager::addObject(sf::Vector2f position,
-                                     float radius) noexcept {
+Particle &ParticleManager::addObject(const sf::Vector2f &position,
+                                     const float radius) noexcept {
     Particle newParticle = Particle(position, radius);
     return objects.emplace_back(newParticle);
 }
@@ -39,18 +39,8 @@ void ParticleManager::update() {
     }
 };
 
-void ParticleManager::setBoundary(sf::Vector2f position,
-                                  float radius) noexcept {
-    boundary_center = position;
-    boundary_radius = radius;
-}
-
-sf::Vector3f ParticleManager::getBoundary() const noexcept {
-    return {boundary_center.x, boundary_center.y, boundary_radius};
-}
-
 void ParticleManager::setObjectVelocity(Particle &object,
-                                        sf::Vector2f v) noexcept {
+                                        const sf::Vector2f &v) noexcept {
     object.setVelocity(v, getStepDt());
 }
 
@@ -124,7 +114,7 @@ void inline ParticleManager::checkCollisions() {
     }
 }
 
-void inline ParticleManager::updateObjects(float dt) noexcept {
+void inline ParticleManager::updateObjects(const float dt) noexcept {
     for (auto &obj : objects) {
         obj.update(dt);
     }
@@ -134,7 +124,7 @@ std::vector<Particle> &ParticleManager::getObjects() noexcept {
     return objects;
 }
 
-void ParticleManager::mousePull(sf::Vector2f pos) {
+void ParticleManager::mousePull(const sf::Vector2f &pos) {
     for (auto &obj : objects) {
         sf::Vector2 dir = pos - obj.position;
         float dist = std::sqrt(dir.x * dir.x + dir.y * dir.y);
@@ -142,7 +132,7 @@ void ParticleManager::mousePull(sf::Vector2f pos) {
     }
 }
 
-void ParticleManager::mousePush(sf::Vector2f pos) {
+void ParticleManager::mousePush(const sf::Vector2f &pos) {
     for (auto &obj : objects) {
         sf::Vector2 dir = pos - obj.position;
         float dist = std::sqrt(dir.x * dir.x + dir.y * dir.y);

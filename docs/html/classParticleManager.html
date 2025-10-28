@@ -102,22 +102,22 @@ $(function(){initNavTree('classParticleManager.html','','classParticleManager-me
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab4c45d23969c2ad9cd9294f6e4923be2" id="r_ab4c45d23969c2ad9cd9294f6e4923be2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4c45d23969c2ad9cd9294f6e4923be2">ParticleManager</a> ()=default</td></tr>
 <tr class="memdesc:ab4c45d23969c2ad9cd9294f6e4923be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializes reasonable simulation defaults.  <br /></td></tr>
-<tr class="memitem:a34799b9f172e3d0057c80f3b7ea45b00" id="r_a34799b9f172e3d0057c80f3b7ea45b00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34799b9f172e3d0057c80f3b7ea45b00">mousePull</a> (sf::Vector2f pos)</td></tr>
-<tr class="memdesc:a34799b9f172e3d0057c80f3b7ea45b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply an attractive mouse force toward the given position.  <br /></td></tr>
-<tr class="memitem:a72c3d141a55876f10efa496958d25c5a" id="r_a72c3d141a55876f10efa496958d25c5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72c3d141a55876f10efa496958d25c5a">mousePush</a> (sf::Vector2f pos)</td></tr>
-<tr class="memdesc:a72c3d141a55876f10efa496958d25c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a repulsive mouse force away from the given position.  <br /></td></tr>
-<tr class="memitem:afd0a0edeb19dd7688d5a6c5bd67c9d76" id="r_afd0a0edeb19dd7688d5a6c5bd67c9d76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classParticle.html">Particle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd0a0edeb19dd7688d5a6c5bd67c9d76">addObject</a> (sf::Vector2f position, float radius) noexcept</td></tr>
-<tr class="memdesc:afd0a0edeb19dd7688d5a6c5bd67c9d76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and add a new particle to the system.  <br /></td></tr>
+<tr class="memitem:a9fe8be0fae508ed4bf864715faabee29" id="r_a9fe8be0fae508ed4bf864715faabee29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fe8be0fae508ed4bf864715faabee29">mousePull</a> (const sf::Vector2f &amp;pos)</td></tr>
+<tr class="memdesc:a9fe8be0fae508ed4bf864715faabee29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply an attractive mouse force toward the given position.  <br /></td></tr>
+<tr class="memitem:ab72da0b76c85f69d06717c81e2159b2d" id="r_ab72da0b76c85f69d06717c81e2159b2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab72da0b76c85f69d06717c81e2159b2d">mousePush</a> (const sf::Vector2f &amp;pos)</td></tr>
+<tr class="memdesc:ab72da0b76c85f69d06717c81e2159b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a repulsive mouse force away from the given position.  <br /></td></tr>
+<tr class="memitem:a0728b399a7d16fbb7731573dc9943b9c" id="r_a0728b399a7d16fbb7731573dc9943b9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classParticle.html">Particle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0728b399a7d16fbb7731573dc9943b9c">addObject</a> (const sf::Vector2f &amp;position, const float radius) noexcept</td></tr>
+<tr class="memdesc:a0728b399a7d16fbb7731573dc9943b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and add a new particle to the system.  <br /></td></tr>
 <tr class="memitem:a3e34596909046f4c294a6294b88a9b1f" id="r_a3e34596909046f4c294a6294b88a9b1f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classParticle.html">Particle</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e34596909046f4c294a6294b88a9b1f">getObjects</a> () noexcept</td></tr>
 <tr class="memdesc:a3e34596909046f4c294a6294b88a9b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access all managed particles.  <br /></td></tr>
 <tr class="memitem:add3b932a679f0b8e97f9eaae0cad434f" id="r_add3b932a679f0b8e97f9eaae0cad434f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add3b932a679f0b8e97f9eaae0cad434f">update</a> ()</td></tr>
 <tr class="memdesc:add3b932a679f0b8e97f9eaae0cad434f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the simulation by one frame.  <br /></td></tr>
-<tr class="memitem:a25d731aca420941d395791a50beec0c6" id="r_a25d731aca420941d395791a50beec0c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25d731aca420941d395791a50beec0c6">setBoundary</a> (sf::Vector2f position, float radius) noexcept</td></tr>
-<tr class="memdesc:a25d731aca420941d395791a50beec0c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a circular boundary constraint for particles.  <br /></td></tr>
+<tr class="memitem:a08cebcff1d3f77d1136533ccd621aa20" id="r_a08cebcff1d3f77d1136533ccd621aa20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08cebcff1d3f77d1136533ccd621aa20">setBoundary</a> (const sf::Vector2f &amp;position, const float radius) noexcept</td></tr>
+<tr class="memdesc:a08cebcff1d3f77d1136533ccd621aa20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a circular boundary constraint for particles.  <br /></td></tr>
 <tr class="memitem:ac41ebbcac5ac3ebad1cf6b1f01eb895e" id="r_ac41ebbcac5ac3ebad1cf6b1f01eb895e"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac41ebbcac5ac3ebad1cf6b1f01eb895e">getBoundary</a> () const noexcept</td></tr>
 <tr class="memdesc:ac41ebbcac5ac3ebad1cf6b1f01eb895e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query the current circular boundary as (x, y, r).  <br /></td></tr>
-<tr class="memitem:af3f74c9bbc83330601b3a83d239902e5" id="r_af3f74c9bbc83330601b3a83d239902e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3f74c9bbc83330601b3a83d239902e5">setObjectVelocity</a> (<a class="el" href="classParticle.html">Particle</a> &amp;object, sf::Vector2f v) noexcept</td></tr>
-<tr class="memdesc:af3f74c9bbc83330601b3a83d239902e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the instantaneous velocity of a specific particle.  <br /></td></tr>
+<tr class="memitem:aa7a43151c41327ae59c2638c20571c30" id="r_aa7a43151c41327ae59c2638c20571c30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7a43151c41327ae59c2638c20571c30">setObjectVelocity</a> (<a class="el" href="classParticle.html">Particle</a> &amp;object, const sf::Vector2f &amp;v) noexcept</td></tr>
+<tr class="memdesc:aa7a43151c41327ae59c2638c20571c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the instantaneous velocity of a specific particle.  <br /></td></tr>
 <tr class="memitem:a04425bf4bdaf365af9e8de6a3f98fd43" id="r_a04425bf4bdaf365af9e8de6a3f98fd43"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04425bf4bdaf365af9e8de6a3f98fd43">getStepDt</a> () const noexcept</td></tr>
 <tr class="memdesc:a04425bf4bdaf365af9e8de6a3f98fd43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the fixed time step used for a full frame update.  <br /></td></tr>
 <tr class="memitem:a4203e7bd3a8f20bc50d1850f9b65343a" id="r_a4203e7bd3a8f20bc50d1850f9b65343a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4203e7bd3a8f20bc50d1850f9b65343a">toggleGravityUp</a> () noexcept</td></tr>
@@ -175,8 +175,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="afd0a0edeb19dd7688d5a6c5bd67c9d76" name="afd0a0edeb19dd7688d5a6c5bd67c9d76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd0a0edeb19dd7688d5a6c5bd67c9d76">&#9670;&#160;</a></span>addObject()</h2>
+<a id="a0728b399a7d16fbb7731573dc9943b9c" name="a0728b399a7d16fbb7731573dc9943b9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0728b399a7d16fbb7731573dc9943b9c">&#9670;&#160;</a></span>addObject()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,12 +187,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classParticle.html">Particle</a> &amp; ParticleManager::addObject </td>
           <td>(</td>
-          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
+          <td class="paramtype">const sf::Vector2f &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>&#160;)</td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -299,8 +299,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a34799b9f172e3d0057c80f3b7ea45b00" name="a34799b9f172e3d0057c80f3b7ea45b00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34799b9f172e3d0057c80f3b7ea45b00">&#9670;&#160;</a></span>mousePull()</h2>
+<a id="a9fe8be0fae508ed4bf864715faabee29" name="a9fe8be0fae508ed4bf864715faabee29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fe8be0fae508ed4bf864715faabee29">&#9670;&#160;</a></span>mousePull()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -308,7 +308,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void ParticleManager::mousePull </td>
           <td>(</td>
-          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
+          <td class="paramtype">const sf::Vector2f &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -325,8 +325,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a72c3d141a55876f10efa496958d25c5a" name="a72c3d141a55876f10efa496958d25c5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72c3d141a55876f10efa496958d25c5a">&#9670;&#160;</a></span>mousePush()</h2>
+<a id="ab72da0b76c85f69d06717c81e2159b2d" name="ab72da0b76c85f69d06717c81e2159b2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab72da0b76c85f69d06717c81e2159b2d">&#9670;&#160;</a></span>mousePush()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -334,7 +334,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void ParticleManager::mousePush </td>
           <td>(</td>
-          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
+          <td class="paramtype">const sf::Vector2f &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -351,8 +351,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a25d731aca420941d395791a50beec0c6" name="a25d731aca420941d395791a50beec0c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25d731aca420941d395791a50beec0c6">&#9670;&#160;</a></span>setBoundary()</h2>
+<a id="a08cebcff1d3f77d1136533ccd621aa20" name="a08cebcff1d3f77d1136533ccd621aa20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08cebcff1d3f77d1136533ccd621aa20">&#9670;&#160;</a></span>setBoundary()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,12 +363,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void ParticleManager::setBoundary </td>
           <td>(</td>
-          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
+          <td class="paramtype">const sf::Vector2f &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>&#160;)</td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -390,8 +390,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af3f74c9bbc83330601b3a83d239902e5" name="af3f74c9bbc83330601b3a83d239902e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3f74c9bbc83330601b3a83d239902e5">&#9670;&#160;</a></span>setObjectVelocity()</h2>
+<a id="aa7a43151c41327ae59c2638c20571c30" name="aa7a43151c41327ae59c2638c20571c30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7a43151c41327ae59c2638c20571c30">&#9670;&#160;</a></span>setObjectVelocity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -407,7 +407,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
+          <td class="paramtype">const sf::Vector2f &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
