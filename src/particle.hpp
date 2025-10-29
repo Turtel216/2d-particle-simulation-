@@ -61,6 +61,8 @@ class Particle {
      */
     sf::Color color = sf::Color::Cyan;
 
+    int gridx = 0, gridy = 0, id = 0;
+
     /**
      * @brief Default constructor.
      *
@@ -78,9 +80,11 @@ class Particle {
      * @param position_ Initial position in pixels.
      * @param radius_   Rendering/collision radius in pixels.
      */
-    Particle(const sf::Vector2f position_, const float radius_)
+    Particle(const sf::Vector2f position_, const float radius_, int gx_,
+             int gy_, int id_)
         : position{position_}, position_last{position_},
-          acceleration{10.0f, 10.0f}, radius{radius_} {}
+          acceleration{10.0f, 10.0f}, radius{radius_}, gridx(gx_), gridy(gy_),
+          id(id_) {}
 
     /**
      * @brief Integrate particle state forward by dt seconds.
@@ -327,6 +331,18 @@ class ParticleManager {
     float sub_steps = 8;
 
     /**
+     * @brief Size of each grid in the collision detection system
+     *
+     * */
+    float grid_size = 12;
+
+    /**
+     * @brief Vector holding the grid for collision detection
+     *
+     * */
+    std::vector<int> grid[350][350];
+
+    /**
      * @brief Apply global gravity to all particles.
      *
      * Adds the gravity vector to each particle's acceleration.
@@ -347,7 +363,9 @@ class ParticleManager {
      * Typically uses simple circle overlap resolution based on particle radii.
      * Behavior is implementation-specific (e.g., positional correction only).
      */
-    void inline checkCollisions();
+    void inline checkCollisions() noexcept;
+
+    void inline collideCells(int x1, int y1, int x2, int y2) noexcept;
 
     /**
      * @brief Update all particles by a sub-step dt.
