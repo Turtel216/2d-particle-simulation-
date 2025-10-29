@@ -26,12 +26,11 @@ int main(int argc, char *argv[]) {
 
     ParticleManager manager;
 
-    const int max_objects = 1000; // Maximum number of particles being spawned
-    const float spawn_delay = 0.05f;
+    const int max_objects = 3000; // Maximum number of particles being spawned
+    const float spawn_delay = 0.005f;
     const sf::Vector2f spawn_position = {420.0f,
                                          200.0f}; // Particle spawn point
-    const float min_radius = 7.0f;                // Minimum particle radius
-    const float max_radius = 12.0f;               // Maximum particle radius
+    const float radius = 6.0f;                    // Radius of single particle
     const float spawn_velocity =
         200.0f; // Initiale particle velocity after spawn
     const float max_angle = M_PI * 0.5f; // Maximum spawn angle
@@ -63,7 +62,6 @@ int main(int argc, char *argv[]) {
         if (manager.getObjects().size() < max_objects &&
             spawn_clock.getElapsedTime().asSeconds() >= spawn_delay) {
             float t = timer.getElapsedTime().asSeconds();
-            float radius = min_radius + (max_radius - min_radius) * getRandom();
             auto &object = manager.addObject(spawn_position, radius);
 
             float angle = M_PI * 0.5f + max_angle * std::sin(3 * t);

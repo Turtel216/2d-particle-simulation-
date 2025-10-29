@@ -340,7 +340,7 @@ class ParticleManager {
      * @brief Vector holding the grid for collision detection
      *
      * */
-    std::vector<int> grid[350][350];
+    std::vector<int> grid[100][100];
 
     /**
      * @brief Apply global gravity to all particles.
@@ -365,7 +365,8 @@ class ParticleManager {
      */
     void inline checkCollisions() noexcept;
 
-    void inline collideCells(int x1, int y1, int x2, int y2) noexcept;
+    std::vector<int> inline getCollisionParticles(
+        int particleID) const noexcept;
 
     /**
      * @brief Update all particles by a sub-step dt.

@@ -94,64 +94,48 @@ void inline ParticleManager::applyBoundary() noexcept {
 }
 
 void inline ParticleManager::checkCollisions() noexcept {
-    int num_cells = window_size / grid_size;
-    int dx[] = {1, 1, 0, 0, -1};
-    int dy[] = {0, 1, 0, 1, 1};
-    for (int i = 0; i < num_cells; ++i) {
-        for (int j = 0; j < num_cells; ++j) {
-            if (!grid[i][j].size())
-                continue;
-            for (int k = 0; k < 5; ++k) {
-                int nx = i + dx[k], ny = j + dy[k];
-                if (nx < 0 || ny < 0 || nx >= num_cells || ny >= num_cells)
-                    continue;
-                collideCells(i, j, nx, ny);
-            }
-        }
-    }
-}
-
-void inline ParticleManager::collideCells(int x1, int y1, int x2,
-                                          int y2) noexcept {
-    for (int id_1 : grid[x1][y1]) {
-        Particle &obj_1 = objects[id_1];
-        for (int id_2 : grid[x2][y2]) {
-            if (id_1 == id_2)
-                continue;
-
-            Particle &obj_2 = objects[id_2];
+    int num_objects = objects.size();
+    for (Particle &obj_1 : objects) {
+        for (int i : getCollisionParticles(obj_1.id)) {
+            Particle &obj_2 = objects[i];
             sf::Vector2f v = obj_1.position - obj_2.position;
             float dist = sqrt(v.x * v.x + v.y * v.y);
             float min_dist = obj_1.radius + obj_2.radius;
 
             if (dist < min_dist) {
                 sf::Vector2f n = v / dist; // Normalize
-                // Big thing moves less
-                float total_mass =
-                    obj_1.radius * obj_1.radius + obj_2.radius * obj_2.radius;
-                float mass_ratio = (obj_1.radius * obj_1.radius) / total_mass;
                 float delta = 0.5f * (min_dist - dist);
 
-                obj_1.position += n * (1 - mass_ratio) * delta;
-                obj_2.position -= n * mass_ratio * delta;
+                obj_1.position += n * 0.5f * delta;
+                obj_2.position -= n * 0.5f * delta;
             }
         }
     }
 }
 
-void inline ParticleManager::updateObjects(const float dt) noexcept {
-    for (auto &obj : objects) {
-        int cur_gridx = obj.gridx, cur_gridy = obj.gridy;
-        obj.update(dt);
-        obj.gridx = obj.position.x / grid_size;
-        obj.gridy = obj.position.y / grid_size;
-
-        if (cur_gridx != obj.gridx || cur_gridy != obj.gridy) {
-            auto pos = find(grid[cur_gridx][cur_gridy].begin(),
-                            grid[cur_gridx][cur_gridy].end(), obj.id);
-            grid[cur_gridx][cur_gridy].erase(pos);
-            grid[obj.gridx][obj.gridy].push_back(obj.id);
+std::vector<int>
+ParticleManager::getCollisionParticles(int particleID) const noexcept {
+    Particle p = objects[particleID];
+    std::vector<int> res;
+    for (int i = p.gridx - 1; i <= p.gridx + 1; ++i) {
+        for (int j = p.gridy - 1; j <= p.gridy + 1; ++j) {
+            if (i < 0 || j < 0 || i >= 56 || j >= 56)
+                continue;
+            for (int new_id : grid[i][j])
+                if (new_id != p.id)
+                    res.push_back(new_id);
         }
+    }
+    return res;
+}
+
+void inline ParticleManager::updateObjects(const float dt) noexcept {
+    for (int i = 0; i < 100; ++i)
+        for (int j = 0; j < 100; ++j)
+            grid[i][j].clear();
+    for (auto &obj : objects) {
+        obj.update(dt);
+        grid[obj.gridx][obj.gridy].push_back(obj.id);
     }
 }
 
